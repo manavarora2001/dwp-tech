@@ -21,12 +21,7 @@ pipeline {
          }         
        }
        
-      stage ("test") {
-          when {
-              expression {
-                  (BRANCH_NAME == 'master' || BRANCH_NAME == 'dev') && params.executeTests
-              }
-          }
+      stage ("test") {         
          steps {
             echo 'testing the application ....'
             withMaven(maven:'Maven.3.6'){
